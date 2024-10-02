@@ -1,17 +1,23 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Validación</title>
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+    <div class="form-container">
+        <h2>Validación</h2>
+        <form action="https://prod-05.brazilsouth.logic.azure.com:443/workflows/f1a7c177389e454a93a419e3ea6f30a6/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=P4Eb8_Avx72GwbeF3zSceoBD4-tvD9cmOWdE52biQss">
+            <div class="input-form">
+                <label for="input-form">Ingrese su código de validación</label>
+                <input type="text" id="codigo" name="codigo" placeholder="Código de verificación">
+            </div>
+            <div class="botton"></div>
+                <input type="submit" value="Enviar" > 
+            </div>
+        </form>
+    </div>
+    <script src="main.js"></script>
 </body>
-
 </html>
