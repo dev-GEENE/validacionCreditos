@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const codigo = inputCodigo.value.trim();
 
         if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/.test(codigo)) {
-            alert("Código de validación correcto.");
+            //alert("Código de validación correcto.");
 
             const data = {
                 codigo_verificacion: codigo 
@@ -25,17 +25,23 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => {
                 if (response.ok) {
                     console.log('Formulario enviado con éxito');
-                    alert('Formulario enviado con éxito');
+                    //alert('Formulario enviado con éxito');
+                    window.location.href = "https://agradecimientov.geene.com.py/";
+                    form.reset();
                 } else {
                     console.error('Error en la respuesta del servidor:', response.status);
-                    alert('Hubo un problema al enviar el formulario.');
+                    //alert('Hubo un problema al enviar el formulario.');
+                    window.location.href = "https://errorvalidacion.geene.com.py/";
+                    form.reset();
                 }
                 return response.text();
             })
             .then(text => {
                 if (!text) {
                     console.warn('La respuesta está vacía');
-                    alert('Formulario enviado, pero la respuesta está vacía');
+                    //alert('Formulario enviado, pero la respuesta está vacía');
+                    window.location.href = "https://errorvalidacion.geene.com.py/";
+                    form.reset();
                 } else {
                     try {
                         const jsonData = JSON.parse(text);
@@ -47,11 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch(error => {
                 console.error('Error en la solicitud:', error);
-                alert('Hubo un error al enviar el formulario');
+                //alert('Hubo un error al enviar el formulario');
+                window.location.href = "https://errorvalidacion.geene.com.py/";
+                form.reset();
             });
 
         } else {
-            alert("El código debe contener letras y números.");
+            //alert("El código debe contener letras y números.");
+            window.location.href = "https://errorvalidacion.geene.com.py/";
+            form.reset();
         }
     });
 });
