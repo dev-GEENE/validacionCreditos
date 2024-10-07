@@ -2,13 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const inputCodigo = document.getElementById("codigo");
 
-    // Capturar el código directamente de la URL
-    const pathname = window.location.pathname;
-    const codigoDesdeUrl = pathname.substring(1); 
-    inputCodigo.value = codigoDesdeUrl;
+    const params = new URLSearchParams(window.location.search);
+    const codigoDesdeUrl = params.get("codigo");
 
     // Si la URL tiene el código, envía el formulario automáticamente
     if (codigoDesdeUrl) {
+        inputCodigo.value = codigoDesdeUrl;
+
         const datosFormulario = {
             codigo_verificacion: codigoDesdeUrl
         };
@@ -25,14 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
                 console.log('Formulario enviado con éxito');
                 window.location.href = "https://agradecimientov.geene.com.py/";
-            } /*else {
+            } else {
                 console.error('Error en la respuesta del servidor:', response.status);
                 window.location.href = "https://errorvalidacion.geene.com.py/";
             }
         })
-        .catch(error => {
+        /*.catch(error => {
             console.error('Error en la solicitud:', error);
-            window.location.href = "https://errorvalidacion.geene.com.py/";*/
-        });
+            window.location.href = "https://errorvalidacion.geene.com.py/";
+        });*/
     }
 });
