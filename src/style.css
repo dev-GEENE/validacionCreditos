@@ -6,48 +6,72 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: "Arial", sans-serif; /* Cambiado a Arial */
-    background-color: hsl(180, 100%, 100%);
+    font-family: "Arial", sans-serif;
+    background-color: #f0f4f8; /* Fondo claro */
 }
 
 .form-container {
-    background-color: rgba(220, 255, 255, 0.881);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(55, 54, 54, 0.1);
-    width: 45%;
+    background-color: white; /* Fondo blanco */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    width: 40%; /* Ancho del formulario */
+    max-width: 500px; /* Máximo ancho */
+    border-radius: 10px; /* Bordes redondeados */
 }
 
 .form-container h2 {
-    text-align: center;
-    color: rgb(8, 182, 251);
+    text-align: center; /* Centrar título */
+    color: #2090ff; /* Color del título */
+    font-size: 1.8em; /* Tamaño del título */
+    margin-bottom: 20px; /* Espaciado inferior */
 }
 
-input,
-textarea {
-    width: 96.5%;
-    padding: 10px;
-    margin-bottom: 10px; /* Manteniendo un margen uniforme */
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: rgb(243, 243, 243);
-    font-family: "Arial", sans-serif; /* Aplicado Arial también a los inputs y textarea */
+.input-form {
+    margin-bottom: 20px; /* Espaciado inferior de la sección del input */
+}
+
+.input-form label {
+    display: block; /* Hacer el label un bloque */
+    margin-bottom: 5px; /* Espaciado inferior del label */
+    color: #333; /* Color del texto */
+}
+
+input[type="text"] {
+    width: 100%; /* Ajustar al 100% */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 10px; /* Margen inferior */
+    border: 1px solid #2090ff; /* Borde azul */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    background-color: white; /* Fondo blanco */
+    color: #333; /* Color del texto */
+}
+
+input[type="text"]::placeholder {
+    color: #999; /* Color del placeholder */
 }
 
 input[type="submit"] {
-    background-color: #4356df;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    width: 30%;
-    display: block;
-    margin: 0 auto;
-    margin-top: 5%;
-    transition: background-color 0.3s;
+    background-color: #0d4d74; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar cursor */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    width: auto; /* Ancho automático */
+    border-radius: 30px; /* Bordes redondeados */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    display: block; /* Mostrar como bloque */
+    margin: 0 auto; /* Centrar el botón */
+    transition: background-color 0.3s ease; /* Transición */
 }
 
 input[type="submit"]:hover {
-    background-color: #58a5bf;
+    background-color: #003f7f; /* Color de fondo al pasar el mouse */
+}
+
+/* Adaptación para dispositivos más pequeños */
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%; /* Ajusta el ancho en pantallas pequeñas */
+    }
 }
