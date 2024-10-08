@@ -69,6 +69,16 @@ input[type="submit"]:hover {
     background-color: #003f7f; /* Color de fondo al pasar el mouse */
 }
 
+#loadingMessage {
+    display: none;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
 /* Adaptación para dispositivos más pequeños */
 @media (max-width: 768px) {
     .form-container {
