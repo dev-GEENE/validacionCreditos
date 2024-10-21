@@ -4,12 +4,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitButton = document.getElementById("submitButton");
     const loadingMessage = document.getElementById("loadingMessage");
 
+    // Asegúrate de que el mensaje de carga esté oculto al cargar la página
+    loadingMessage.style.display = "none";
+
     const params = new URLSearchParams(window.location.search);
     const codigoDesdeUrl = params.get("codigo");
 
     // Si la URL tiene el código, lo coloca en el input y envía el formulario automáticamente
     if (codigoDesdeUrl) {
         inputCodigo.value = codigoDesdeUrl;
+
+        // Muestra el mensaje de carga y deshabilita el botón, igual que en el proceso manual
+        submitButton.disabled = true;
+        loadingMessage.style.display = "block";
+
         procesarFormulario(codigoDesdeUrl);
     }
 
@@ -19,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         // Deshabilita el botón y muestra el mensaje de carga
         submitButton.disabled = true;
-        loadingMessage.style.display = "block";
+        loadingMessage.style.display = "block"; // Muestra el mensaje de carga
 
         procesarFormulario(codigoVerificacion);
     });
@@ -49,3 +57,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
