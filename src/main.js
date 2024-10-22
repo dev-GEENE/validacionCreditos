@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitButton = document.getElementById("submitButton");
     const loadingMessage = document.getElementById("loadingMessage");
 
+    let codigoVerificado = false; // Variable para verificar si el código ya ha sido procesado
+
     // Asegúrate de que el mensaje de carga esté oculto al cargar la página
     loadingMessage.style.display = "none";
 
@@ -24,7 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Evita el envío estándar del formulario
         const codigoVerificacion = inputCodigo.value.trim();
-        
+
+        // Verifica si el código ya fue verificado para evitar el reenvío
+        if (codigoVerificado) {
+            console.log('El código ya fue verificado. No se enviará el formulario nuevamente.');
+            return; // Sale de la función para evitar el envío
+        }
+
         // Deshabilita el botón y muestra el mensaje de carga
         submitButton.disabled = true;
         loadingMessage.style.display = "block"; // Muestra el mensaje de carga
@@ -45,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => {
             if (response.ok) {
                 console.log('Formulario enviado con éxito');
+                codigoVerificado = true; // Marca el código como verificado
                 window.location.href = "https://agradecimientov.geene.com.py/";
             } else {
                 console.error('Error en la respuesta del servidor:', response.status);
@@ -57,4 +66,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
